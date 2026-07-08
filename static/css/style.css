@@ -1,0 +1,424 @@
+/* =========================================================================
+   AI Translator — Stylesheet
+   Uses CSS custom properties so light/dark themes are just variable swaps.
+   ========================================================================= */
+
+:root {
+  --color-bg: #f4f6fb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f0f2f8;
+  --color-border: #e0e3ee;
+  --color-text: #1c1e2b;
+  --color-text-muted: #6b7080;
+  --color-primary: #4f5bd5;
+  --color-primary-hover: #3f4ac0;
+  --color-primary-contrast: #ffffff;
+  --color-danger: #d64545;
+  --color-danger-bg: #fdeaea;
+  --color-badge-bg: #e8ebfb;
+  --color-badge-text: #4f5bd5;
+  --shadow-card: 0 8px 24px rgba(20, 24, 55, 0.08);
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+  --transition-fast: 150ms ease;
+}
+
+[data-theme="dark"] {
+  --color-bg: #12141f;
+  --color-surface: #1a1d2c;
+  --color-surface-alt: #22263a;
+  --color-border: #2d3148;
+  --color-text: #eceef7;
+  --color-text-muted: #9297ad;
+  --color-primary: #7c87f2;
+  --color-primary-hover: #909bff;
+  --color-primary-contrast: #12141f;
+  --color-danger: #ff6b6b;
+  --color-danger-bg: #3a1f22;
+  --color-badge-bg: #292d47;
+  --color-badge-text: #b7bdfc;
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Inter", -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 100%;
+}
+
+/* ---------------------------- Header ---------------------------- */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  font-size: 28px;
+}
+
+.brand h1 {
+  font-size: 22px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.icon-btn {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background: var(--color-surface-alt);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------- Main card ---------------------------- */
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.translator-card,
+.history-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+}
+
+.lang-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.lang-select-wrap {
+  flex: 1;
+}
+
+.lang-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.swap-btn {
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.panels-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface-alt);
+}
+
+.text-area {
+  min-height: 160px;
+  padding: 14px;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 15px;
+  line-height: 1.5;
+  resize: vertical;
+  font-family: inherit;
+  outline: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.text-area-readonly {
+  cursor: default;
+  overflow-y: auto;
+}
+
+.panel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.char-count {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--color-badge-bg);
+  color: var(--color-badge-text);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.text-btn {
+  border: none;
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.text-btn:hover {
+  background: var(--color-surface);
+}
+
+/* ---------------------------- Controls ---------------------------- */
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.temperature-control {
+  flex: 1;
+  min-width: 220px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.temperature-control label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.temperature-control input[type="range"] {
+  width: 100%;
+  accent-color: var(--color-primary);
+}
+
+.primary-btn {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  border: none;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.primary-btn:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.primary-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-banner {
+  margin-top: 14px;
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+}
+
+/* ---------------------------- History ---------------------------- */
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.history-header h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.history-empty {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.history-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  background: var(--color-surface-alt);
+}
+
+.history-item-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.history-source {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.history-target {
+  font-size: 14px;
+  margin: 0 0 6px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.history-item-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* ---------------------------- Footer ---------------------------- */
+.app-footer {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* ---------------------------- Responsive ---------------------------- */
+@media (max-width: 640px) {
+  .panels-row {
+    grid-template-columns: 1fr;
+  }
+
+  .lang-row {
+    flex-wrap: wrap;
+  }
+
+  .lang-select-wrap {
+    flex-basis: calc(50% - 24px);
+  }
+
+  .controls-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary-btn {
+    justify-content: center;
+  }
+}
