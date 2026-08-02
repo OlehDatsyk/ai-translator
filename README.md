@@ -40,12 +40,12 @@ have the app running locally in Visual Studio Code.
 - 🌗 Dark mode with saved preference
 - 📱 Fully responsive design (desktop, tablet, mobile)
 - 🧠 Demonstrates key GenAI engineering concepts:
-  - **System Prompt** — a fixed instruction that defines the model's role
-  - **Prompt Engineering** — structured, explicit user prompts
-  - **Structured Output** — JSON Schema-enforced responses via the
+  - **System Prompt** - a fixed instruction that defines the model's role
+  - **Prompt Engineering** - structured, explicit user prompts
+  - **Structured Output** - JSON Schema-enforced responses via the
     OpenAI Responses API
-  - **Temperature control** — adjustable via a UI slider
-  - **JSON parsing** — safe, validated parsing of model output
+  - **Temperature control** - adjustable via a UI slider
+  - **JSON parsing** - safe, validated parsing of model output
 
 ---
 
@@ -58,7 +58,7 @@ have the app running locally in Visual Studio Code.
 | Frontend       | HTML5, CSS3 (custom properties), vanilla JavaScript |
 | Config/Secrets | `python-dotenv`, environment variables    |
 
-No frontend build tools (React/Webpack/etc.) are required — everything
+No frontend build tools (React/Webpack/etc.) are required - everything
 runs directly in the browser.
 
 ---
@@ -68,23 +68,23 @@ runs directly in the browser.
 ```
 ai-translator/
 │
-├── app.py                 # Flask application entrypoint & routes
-├── translator.py          # OpenAI Responses API integration (core AI logic)
-├── config.py               # Environment-based configuration loader
+├── app.py # Flask application entrypoint & routes
+├── translator.py # OpenAI Responses API integration (core AI logic)
+├── config.py # Environment-based configuration loader
 │
 ├── templates/
-│   └── index.html          # Main HTML page (Jinja2 template)
+│   └── index.html # Main HTML page (Jinja2 template)
 │
 ├── static/
 │   ├── css/
-│   │   └── style.css       # Styling, responsive layout, dark mode
+│   │   └── style.css # Styling, responsive layout, dark mode
 │   └── js/
-│       └── script.js       # Frontend logic (fetch calls, history, UI state)
+│       └── script.js # Frontend logic (fetch calls, history, UI state)
 │
-├── requirements.txt        # Python dependencies
-├── .env.example             # Template for required environment variables
-├── .gitignore                # Files/folders excluded from Git
-└── README.md                 # This file
+├── requirements.txt # Python dependencies
+├── .env.example # Template for required environment variables
+├── .gitignore # Files/folders excluded from Git
+└── README.md # This file
 ```
 
 ---
@@ -93,22 +93,22 @@ ai-translator/
 
 Before you start, make sure you have the following installed:
 
-1. **Visual Studio Code** — [Download here](https://code.visualstudio.com/)
+1. **Visual Studio Code** - [Download here](https://code.visualstudio.com/)
 2. **Python 3.10 or newer**
    - Download from [python.org/downloads](https://www.python.org/downloads/)
    - ⚠️ On Windows, during installation, **check the box** that says
      **"Add Python to PATH"** before clicking Install.
 3. **The VS Code Python extension**
-   - Open VS Code → click the Extensions icon in the left sidebar (or press
-     `Ctrl+Shift+X` / `Cmd+Shift+X`) → search for **"Python"** (by
-     Microsoft) → click **Install**.
-4. **An OpenAI account and API key** — see [Section 6](#6-getting-an-openai-api-key).
+   - Open VS Code -> click the Extensions icon in the left sidebar (or press
+     `Ctrl+Shift+X` / `Cmd+Shift+X`) -> search for **"Python"** (by
+     Microsoft) -> click **Install**.
+4. **An OpenAI account and API key** - see [Section 6](#6-getting-an-openai-api-key).
 5. **Git** (optional, only needed if you plan to clone/push to a repository)
-   — [Download here](https://git-scm.com/downloads)
+   - [Download here](https://git-scm.com/downloads)
 
 ### Verify Python is installed correctly
 
-Open a terminal (in VS Code: **Terminal → New Terminal**, or `` Ctrl+` ``)
+Open a terminal (in VS Code: **Terminal -> New Terminal**, or `` Ctrl+` ``)
 and run:
 
 ```bash
@@ -129,20 +129,20 @@ your PATH.
 
 ## 5. Step-by-Step Setup in Visual Studio Code
 
-### Step 1 — Open the project folder
+### Step 1 - Open the project folder
 
 1. Launch **Visual Studio Code**.
-2. Go to **File → Open Folder...**
+2. Go to **File -> Open Folder...**
 3. Select the `ai-translator` folder (the one containing `app.py`).
 4. VS Code will reload with the project open in the Explorer sidebar.
 
-### Step 2 — Open the integrated terminal
+### Step 2 - Open the integrated terminal
 
-Go to **Terminal → New Terminal** in the VS Code menu bar (or press
+Go to **Terminal -> New Terminal** in the VS Code menu bar (or press
 `` Ctrl+` ``). A terminal panel will open at the bottom, already pointed at
 your project folder.
 
-### Step 3 — Create a virtual environment
+### Step 3 - Create a virtual environment
 
 A virtual environment keeps this project's Python packages isolated from
 the rest of your system. In the terminal, run:
@@ -160,7 +160,7 @@ python3 -m venv venv
 This creates a `venv/` folder inside your project (already excluded from
 Git via `.gitignore`).
 
-### Step 4 — Activate the virtual environment
+### Step 4 - Activate the virtual environment
 
 **Windows (PowerShell):**
 ```powershell
@@ -184,7 +184,7 @@ source venv/bin/activate
 
 When activated, you'll see `(venv)` appear at the start of your terminal
 prompt. VS Code may also prompt you: *"We noticed a new environment has
-been created. Do you want to select it for the workspace folder?"* — click
+been created. Do you want to select it for the workspace folder?"* - click
 **Yes**.
 
 You can also select the interpreter manually:
@@ -192,7 +192,7 @@ You can also select the interpreter manually:
 2. Type **"Python: Select Interpreter"** and press Enter.
 3. Choose the interpreter located at `./venv/...`.
 
-### Step 5 — Install dependencies
+### Step 5 - Install dependencies
 
 With the virtual environment active, run:
 
@@ -201,11 +201,11 @@ pip install -r requirements.txt
 ```
 
 This installs:
-- `Flask` — the web framework
-- `openai` — the official OpenAI Python SDK (Responses API client)
-- `python-dotenv` — loads variables from a `.env` file
+- `Flask` - the web framework
+- `openai` - the official OpenAI Python SDK (Responses API client)
+- `python-dotenv` - loads variables from a `.env` file
 
-### Step 6 — Configure your environment variables
+### Step 6 - Configure your environment variables
 
 Continue to [Section 7](#7-configuring-environment-variables) below.
 
@@ -215,13 +215,13 @@ Continue to [Section 7](#7-configuring-environment-variables) below.
 
 1. Go to [https://platform.openai.com/](https://platform.openai.com/) and
    sign up or log in.
-2. Click your profile icon (top-right) → **View API keys**, or go directly
+2. Click your profile icon (top-right) -> **View API keys**, or go directly
    to [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys).
 3. Click **Create new secret key**, give it a name (e.g. "ai-translator"),
    and click **Create secret key**.
-4. **Copy the key immediately** — OpenAI will only show it to you once.
+4. **Copy the key immediately** - OpenAI will only show it to you once.
    It looks like `sk-...`.
-5. Make sure your OpenAI account has billing set up (Settings → Billing)
+5. Make sure your OpenAI account has billing set up (Settings -> Billing)
    since API usage is billed separately from ChatGPT Plus subscriptions.
 
 Keep this key private. Never paste it into chat messages, screenshots, or
@@ -243,12 +243,12 @@ commit it to a public repository.
    ```
 
 4. (Optional) Adjust other values such as `OPENAI_MODEL` or
-   `DEFAULT_TEMPERATURE` if desired — the defaults work out of the box.
+   `DEFAULT_TEMPERATURE` if desired - the defaults work out of the box.
 5. Save the file (`Ctrl+S` / `Cmd+S`).
 
 > ✅ The `.env` file is listed in `.gitignore`, so it will **never** be
 > committed to version control. `config.py` reads these values using
-> `python-dotenv` — no secrets are ever hardcoded in the source code.
+> `python-dotenv` - no secrets are ever hardcoded in the source code.
 
 ---
 
@@ -280,9 +280,9 @@ To stop the server, click into the terminal and press `Ctrl+C`.
 
 1. Click the **Run and Debug** icon in the left sidebar (or press
    `Ctrl+Shift+D`).
-2. Click **create a launch.json file** if prompted, and choose **Python →
+2. Click **create a launch.json file** if prompted, and choose **Python ->
    Flask**, or simply click **Run and Debug** with `app.py` open and
-   active — VS Code will run it with the "Python File" configuration.
+   active - VS Code will run it with the "Python File" configuration.
 3. Set breakpoints in `app.py` or `translator.py` by clicking to the left
    of a line number, then trigger a translation from the browser to step
    through the code.
@@ -294,7 +294,7 @@ To stop the server, click into the terminal and press `Ctrl+C`.
 1. **Choose a source language** (or leave it on "Auto Detect").
 2. **Choose a target language** from the second dropdown.
 3. Type or paste text into the left text box (up to 5,000 characters).
-4. (Optional) Adjust the **temperature slider** — lower values produce
+4. (Optional) Adjust the **temperature slider** - lower values produce
    more literal, consistent translations; higher values allow more
    creative phrasing.
 5. Click **Translate** (or press `Ctrl+Enter` / `Cmd+Enter` while focused
@@ -308,7 +308,7 @@ To stop the server, click into the terminal and press `Ctrl+C`.
    to load it back into the editor, or **Delete**/**Clear all** to remove
    entries.
 9. Toggle the 🌙/☀️ icon in the top-right corner to switch between light
-   and dark mode — your preference is remembered on your next visit.
+   and dark mode - your preference is remembered on your next visit.
 
 ### Example
 
@@ -355,10 +355,10 @@ text={
 
 This forces the model to always return a JSON object with exactly the
 fields `translated_text`, `detected_source_language`,
-`source_language_code`, `confidence`, and `notes` — never free-form prose.
+`source_language_code`, `confidence`, and `notes` - never free-form prose.
 
 ### Temperature
-The `temperature` parameter (0.0–2.0) is passed directly to
+The `temperature` parameter (0.0-2.0) is passed directly to
 `client.responses.create(...)`. It is:
 - configurable via `DEFAULT_TEMPERATURE` in `.env`,
 - overridable per-request via the UI slider (sent in the POST body),
@@ -367,7 +367,7 @@ The `temperature` parameter (0.0–2.0) is passed directly to
 ### JSON Parsing
 Even though Structured Outputs guarantees schema conformance from the
 model, `_parse_response()` still explicitly runs `json.loads()`, checks
-for required fields, and validates types — defensive programming that
+for required fields, and validates types - defensive programming that
 protects the app if the API ever returns something unexpected, and makes
 the parsing logic explicit and testable.
 
@@ -384,7 +384,7 @@ the parsing logic explicit and testable.
 | `static/css/style.css`      | All visual styling, including CSS custom properties for light/dark themes and responsive breakpoints. |
 | `static/js/script.js`       | Client-side logic: calling the API, rendering results, managing history in `localStorage`, dark mode toggle, swap/copy/clear actions. |
 | `requirements.txt`          | Pinned Python package versions needed to run the app. |
-| `.env.example`               | Template listing every environment variable the app understands — copy to `.env` and fill in real values. |
+| `.env.example`               | Template listing every environment variable the app understands - copy to `.env` and fill in real values. |
 | `.gitignore`                  | Prevents secrets (`.env`), virtual environments, caches, and editor files from being committed to Git. |
 
 ---
@@ -396,15 +396,15 @@ Your virtual environment is either not activated or dependencies were not
 installed into it.
 - Confirm `(venv)` appears in your terminal prompt.
 - Re-run `pip install -r requirements.txt`.
-- In VS Code, confirm the correct interpreter is selected: `Ctrl+Shift+P` →
-  "Python: Select Interpreter" → choose the one inside `./venv`.
+- In VS Code, confirm the correct interpreter is selected: `Ctrl+Shift+P` ->
+  "Python: Select Interpreter" -> choose the one inside `./venv`.
 
 ### `RuntimeError: OPENAI_API_KEY is not set`
 - Make sure you created a `.env` file (not just `.env.example`) in the
   project root, and that it contains a real key:
   `OPENAI_API_KEY=sk-...`
 - Make sure there are no extra quotes or spaces around the value.
-- Restart the Flask server after editing `.env` — environment variables
+- Restart the Flask server after editing `.env` - environment variables
   are only read on startup.
 
 ### `openai.AuthenticationError` / 401 errors in the terminal
@@ -419,7 +419,7 @@ installed into it.
 ### The page loads but translation fails with a network/502 error
 - Check your internet connection.
 - Check the terminal running `python app.py` for a detailed logged error
-  message — `translator.py` logs the exact OpenAI exception.
+  message - `translator.py` logs the exact OpenAI exception.
 - Confirm your OpenAI account has an active payment method if you're on a
   usage-based plan.
 
@@ -439,13 +439,13 @@ installed into it.
 ### Dark mode / history doesn't persist
 - These features use browser `localStorage`. If you're in a private/
   incognito window, or have cookies/site data disabled, they will reset
-  each session — this is expected browser behavior, not a bug.
+  each session - this is expected browser behavior, not a bug.
 
 ### Nothing happens when I click "Translate"
 - Open your browser DevTools console (F12) and check for JavaScript
   errors.
 - Make sure `static/js/script.js` loaded successfully (check the Network
-  tab) — this can fail if the Flask app isn't serving static files
+  tab) - this can fail if the Flask app isn't serving static files
   correctly, which usually means the app isn't running from the project
   root folder.
 
@@ -481,5 +481,5 @@ modify, and extend it for personal or commercial projects.
 ---
 
 **Enjoy building with AI! If you run into an issue not covered above,
-re-read the terminal output carefully — Flask and the OpenAI SDK both log
+re-read the terminal output carefully - Flask and the OpenAI SDK both log
 detailed, specific error messages that usually point directly at the fix.**
