@@ -134,7 +134,7 @@ Your responsibilities:
 4. Preserve names, numbers, emails, URLs, and code snippets unchanged unless \
    translation is linguistically required.
 5. Never add explanations, commentary, disclaimers, or extra text to the \
-   translated_text field — it must contain ONLY the translation itself.
+   translated_text field - it must contain ONLY the translation itself.
 6. If the input text is empty, ambiguous, or already in the target language, \
    still return a valid JSON object following the required schema, using the \
    "notes" field to briefly explain what happened.
@@ -246,7 +246,7 @@ class Translator:
         source_clause = (
             f'The source language is "{source_language}".'
             if source_language and source_language.lower() != "auto detect"
-            else "The source language is NOT provided — detect it automatically "
+            else "The source language is NOT provided - detect it automatically "
             "from the text."
         )
 
@@ -330,7 +330,7 @@ class Translator:
         Parse and validate the raw JSON string returned by the model.
 
         Even though Structured Outputs guarantees schema conformance,
-        we still defensively parse and validate here — never trust
+        we still defensively parse and validate here - never trust
         external input blindly, even from your own model call.
 
         Raises:

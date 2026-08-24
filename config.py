@@ -113,7 +113,7 @@ def load_config() -> AppConfig:
         request_timeout_seconds=_get_int("OPENAI_REQUEST_TIMEOUT", 30),
         flask_debug=_get_bool("FLASK_DEBUG", False),
         flask_host=os.getenv("FLASK_HOST", "127.0.0.1").strip(),
-        flask_port=_get_int("FLASK_PORT", 5000),
+        flask_port=_get_int("FLASK_PORT", 8000),
         secret_key=os.getenv("FLASK_SECRET_KEY", "dev-secret-key-change-me").strip(),
         log_level=os.getenv("LOG_LEVEL", "INFO").strip().upper(),
     )

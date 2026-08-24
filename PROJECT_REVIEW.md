@@ -93,7 +93,7 @@ Each finding includes severity, description, why it matters, and a recommended i
 - **Clean separation of concerns**: `app.py` (HTTP layer) never touches OpenAI directly; all AI logic is isolated in `translator.py`. This makes the translation logic independently testable and reusable.
 - **Structured Outputs used correctly**: the JSON Schema (`TRANSLATION_JSON_SCHEMA`) with `strict=True` avoids fragile regex/string parsing of model output - a common source of bugs in LLM-integrated apps.
 - **Defensive double-validation**: even though Structured Outputs guarantees schema conformance, `_parse_response()` still explicitly checks for required fields and types. This is good practice - never trust output blindly, even from your own model call.
-- **Consistent input validation on both client and server** (`maxlength="5000"` in HTML, mirrored by a hard check in `app.py`), rather than relying on the frontend alone.
+- **Consistent input validation on both client and server** (`maxlength="8000"` in HTML, mirrored by a hard check in `app.py`), rather than relying on the frontend alone.
 - **No secrets hardcoded anywhere** - all configuration flows through `.env` via `config.py`, and `.env` is correctly excluded via `.gitignore`.
 - **Fail-fast configuration validation** (`settings.validate()` runs at app startup, not on the first API call), which produces a clear error message immediately rather than a confusing runtime failure later.
 - **Thoughtful error handling** in `translator.py`, distinguishing `RateLimitError`, `APIConnectionError`, and `APIStatusError` from OpenAI and translating each into a user-facing message instead of leaking raw exceptions.

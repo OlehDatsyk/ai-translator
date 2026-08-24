@@ -260,13 +260,13 @@ python app.py
 You should see log output ending with something like:
 
 ```
-* Running on http://127.0.0.1:5000
+* Running on http://127.0.0.1:8000
 ```
 
 Now open your web browser and go to:
 
 ```
-http://127.0.0.1:5000
+http://127.0.0.1:8000
 ```
 
 You should see the AI Translator page. 🎉
@@ -329,8 +329,8 @@ You've hit your usage limit. Wait a minute, or check your usage/billing settings
 - Look at the terminal running `python app.py` for a detailed error message.
 - Confirm your OpenAI account has an active payment method.
 
-**"Address already in use" / port 5000 busy**
-Something else on your computer is already using port 5000 (common on Macs, due to AirPlay Receiver). Either close that other program, or open `.env` and change:
+**"Address already in use" / port 8000 busy**
+Something else on your computer is already using port 8000 (common on Macs, due to AirPlay Receiver). Either close that other program, or open `.env` and change:
 ```
 FLASK_PORT=5050
 ```

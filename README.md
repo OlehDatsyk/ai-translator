@@ -263,13 +263,13 @@ python app.py
 You should see log output similar to:
 
 ```
-2026-07-08 10:00:00 | INFO     | werkzeug | * Running on http://127.0.0.1:5000
+2026-07-08 10:00:00 | INFO     | werkzeug | * Running on http://127.0.0.1:8000
 ```
 
 Now open your browser and go to:
 
 ```
-http://127.0.0.1:5000
+http://127.0.0.1:8000
 ```
 
 You should see the AI Translator interface. 🎉
@@ -423,8 +423,8 @@ installed into it.
 - Confirm your OpenAI account has an active payment method if you're on a
   usage-based plan.
 
-### `Address already in use` / port 5000 busy
-- Another process is already using port 5000 (common on macOS with
+### `Address already in use` / port 8000 busy
+- Another process is already using port 8000 (common on macOS with
   AirPlay Receiver). Either:
   - Stop the other process, or
   - Change the port in `.env`: `FLASK_PORT=5050`, then restart and visit

@@ -9,9 +9,9 @@
 # where it's double-clicked from.
 cd "$(dirname "$0")" || exit 1
 
-echo "============================================================"
-echo "  AI Translator - Startup Script (macOS)"
-echo "============================================================"
+echo "===================================================================="
+echo "  AI Translator - Startup Script (macOS) (Was made by Oleh Datsyk)"
+echo "===================================================================="
 echo ""
 
 # ------------------------------------------------------------------
@@ -150,7 +150,7 @@ echo ""
 echo "[6/6] Starting AI Translator..."
 echo ""
 echo "============================================================"
-echo "  The app will open at: http://127.0.0.1:5000"
+echo "  The app will open at: http://127.0.0.1:8000"
 echo "  (the port may differ if you customized FLASK_PORT in .env)"
 echo ""
 echo "  Keep this window open while using the app."

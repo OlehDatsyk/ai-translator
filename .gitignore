@@ -1,9 +1,4 @@
-# --- Environment / secrets ---------------------------------------------
-.env
-.env.local
-.env.*.local
-
-# --- Python --------------------------------------------------------------
+# ---- Python ----
 __pycache__/
 *.py[cod]
 *$py.class
@@ -14,29 +9,49 @@ dist/
 *.egg-info/
 .eggs/
 
-# --- Virtual environments -------------------------------------------------
+# ---- Virtual Environments ----
 venv/
 .venv/
 env/
 ENV/
 
-# --- VS Code ---------------------------------------------------------------
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
+# ---- Environment Variables ----
+.env
+.env.local
+*.env.backup
 
-# --- OS files ------------------------------------------------------------
+# ---- Logs ----
+logs/
+*.log
+
+# ---- SQLite Database ----
+*.db
+*.sqlite
+*.sqlite3
+
+# ---- Uploaded Documents ----
+uploads/
+!uploads/.gitkeep
+
+# ---- Vector Database Data ----
+chroma_data/
+qdrant_data/
+*.index
+
+# ---- OS Files ----
 .DS_Store
 Thumbs.db
 
-# --- Logs ------------------------------------------------------------------
-*.log
+# ---- IDE ----
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
 
-# --- Testing / coverage ----------------------------------------------------
+# ---- Testing ----
 .pytest_cache/
 .coverage
 htmlcov/
 
-# --- Editors -----------------------------------------------------------
-.idea/
-*.swp
+# ---- Distribution / packaging ----
+*.egg

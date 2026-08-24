@@ -9,7 +9,7 @@
  *   - Persist and render translation history (localStorage).
  *   - Toggle and persist dark mode.
  *
- * No external libraries are used — plain, dependency-free JavaScript.
+ * No external libraries are used - plain, dependency-free JavaScript.
  */
 
 (() => {
@@ -45,7 +45,7 @@
   const themeToggleBtn = document.getElementById("theme-toggle");
   const themeIcon = document.getElementById("theme-icon");
 
-  const MAX_CHARS = 5000;
+  const MAX_CHARS = 8000;
   const HISTORY_STORAGE_KEY = "ai-translator-history";
   const THEME_STORAGE_KEY = "ai-translator-theme";
   const MAX_HISTORY_ITEMS = 50;
@@ -300,7 +300,7 @@
       const li = fragment.querySelector(".history-item");
 
       fragment.querySelector(".history-langs").textContent =
-        `${entry.sourceLanguage} → ${entry.targetLanguage}`;
+        `${entry.sourceLanguage} -> ${entry.targetLanguage}`;
       fragment.querySelector(".history-time").textContent =
         formatRelativeTime(entry.timestamp);
       fragment.querySelector(".history-source").textContent = entry.sourceText;

@@ -145,9 +145,9 @@ def create_app() -> Flask:
         if not isinstance(target_language, str) or not target_language.strip():
             return jsonify({"error": "Field 'target_language' is required."}), 400
 
-        if len(text) > 5000:
+        if len(text) > 8000:
             return jsonify(
-                {"error": "Text is too long. Please limit input to 5000 characters."}
+                {"error": "Text is too long. Please limit input to 8000 characters."}
             ), 400
 
         parsed_temperature: float | None = None
